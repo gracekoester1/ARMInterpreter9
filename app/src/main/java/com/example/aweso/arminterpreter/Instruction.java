@@ -31,14 +31,26 @@ public class Instruction
         else if(this.magicTrick.equalsIgnoreCase("SUB"))
         {
             //write the code to Subtract input1 from input2 and store the result in destinationName
+            Register destinationRegister = ARMap.findRegisterWithName(this.destinationName);
+            Register input2Register = ARMap.findRegisterWithName(theInputNames.get(0));
+            Register input1Register = ARMap.findRegisterWithName(theInputNames.get(1));
+            destinationRegister.setValue(input2Register.getValue() - input1Register.getValue());
         }
         else if(this.magicTrick.equalsIgnoreCase("ADDI"))
         {
             //write the code to ADD input2 to an immediate value and store the result in destinationName
+            Register destinationRegister = ARMap.findRegisterWithName(this.destinationName);
+            Register input2Register = ARMap.findRegisterWithName(theInputNames.get(0));
+
+            destinationRegister.setValue(input2Register.getValue() + immediateValue);
         }
         else if(this.magicTrick.equalsIgnoreCase("SUBI"))
         {
             //write the code to Subtract the immediate value in input1 from input2 and store the result in destinationName
+            Register destinationRegister = ARMap.findRegisterWithName(this.destinationName);
+            Register input2Register = ARMap.findRegisterWithName(theInputNames.get(0));
+
+            destinationRegister.setValue(input2Register.getValue() - immediateValue);
         }
     }
 }

@@ -1,8 +1,10 @@
 package com.example.aweso.arminterpreter;
 
+import android.widget.EditText;
+
 public class ARMap
 {
-    private static String[] instructions = {"ADD", "SUB"};
+    private static String[] instructions = {"ADD", "SUB", "ADDI", "SUBI"};
     private static int[] instructionMappings = {1112, 1624};
     public static Register[] registers = new Register[31];
 
@@ -12,6 +14,12 @@ public class ARMap
         {
             ARMap.registers[i] = new Register("X" + i);
         }
+    }
+
+    public static void getImmediateValue()
+    {
+        this.getImmediateValue[30] = (EditText)this.findViewById(R.id.x30ET);
+        int immediateValue = this.getImmediateValue();
     }
 
     public static Register findRegisterWithName(String nameOfRegister)
